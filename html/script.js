@@ -2,7 +2,7 @@ let direction = null;
 let key = "";
 
 const drawText = (textData) => {
-    const text = document.getElementById("qb-text");
+    const text = document.getElementById("text");
     document.getElementById("container").style.display = "block";
 
     if (textData.actionKey) {
@@ -35,7 +35,7 @@ const drawText = (textData) => {
 };
 
 const hideText = () => {
-    const text = document.getElementById("qb-text");
+    const text = document.getElementById("text");
     text.classList.remove("show");
     text.classList.add("hide");
 
@@ -51,7 +51,7 @@ const hideText = () => {
 };
 
 const keyPressed = () => {
-    const text = document.getElementById("qb-text");
+    const text = document.getElementById("text");
     text.classList.add("pressed");
 }
 

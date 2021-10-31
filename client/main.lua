@@ -35,15 +35,15 @@ local function KeyPressed()
     end)
 end
 
-RegisterNetEvent('qb-text:client:DrawText', function(text, position)
+RegisterNetEvent('qb-drawtext:client:DrawText', function(text, position)
     DrawText(text, position)
 end)
 
-RegisterNetEvent('qb-text:client:HideText', function()
+RegisterNetEvent('qb-drawtext:client:HideText', function()
     HideText()
 end)
 
-RegisterNetEvent('qb-text:client:KeyPressed', function()
+RegisterNetEvent('qb-drawtext:client:KeyPressed', function()
     KeyPressed()
 end)
 

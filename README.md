@@ -1,4 +1,4 @@
-# qb-text
+# qb-drawtext
 
 A NUI DrawText with a few different config options
 
@@ -7,16 +7,16 @@ A NUI DrawText with a few different config options
 This can be triggered from the server or client. A more advanced example is posted below.
 |Function or Event | Description |
 |--|--|
-| `exports['qb-text']:DrawText('message','position')` | This is a client export that will draw a message at the specified position (listed below) |
-| `exports['qb-text']:HideText()` | This will hide the text display |
-| `exports['qb-text']:KeyPressed()` | This is useful if you want to change the background and hide the text on keypress (if not handled correctly users will have to renter the zone to display) |
-| `TriggerClientEvent('qb-text:client:DrawText', message, position)` | The same as the export but as an event |
-| `TriggerClientEvent('qb-text:client:HideText')` | The same as the export but as an event |
-| `TriggerClientEvent('qb-text:client:KeyPressed')` | The same as the export but as an event |
+| `exports['qb-drawtext']:DrawText('message','position')` | This is a client export that will draw a message at the specified position (listed below) |
+| `exports['qb-drawtext']:HideText()` | This will hide the text display |
+| `exports['qb-drawtext']:KeyPressed()` | This is useful if you want to change the background and hide the text on keypress (if not handled correctly users will have to renter the zone to display) |
+| `TriggerClientEvent('qb-drawtext:client:DrawText', message, position)` | The same as the export but as an event |
+| `TriggerClientEvent('qb-drawtext:client:HideText')` | The same as the export but as an event |
+| `TriggerClientEvent('qb-drawtext:client:KeyPressed')` | The same as the export but as an event |
 
 ## License
 
-    qb-text
+    qb-drawtext
     Copyright (C) 2021 IdrisDose
 
     This program is free software: you can redistribute it and/or modify
