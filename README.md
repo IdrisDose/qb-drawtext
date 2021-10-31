@@ -14,6 +14,12 @@ This can be triggered from the server or client. A more advanced example is post
 | `TriggerClientEvent('qb-drawtext:client:HideText')` | The same as the export but as an event |
 | `TriggerClientEvent('qb-drawtext:client:KeyPressed')` | The same as the export but as an event |
 
+Positions accepted are:
+
+* left
+* right
+* top
+
 ## License
 
     qb-drawtext
