@@ -1,16 +1,19 @@
 local textIsVisible = false
+local currentText = ""
 
 local function HideText()
     if not textIsVisible then return end
-
     SendNUIMessage({
         action = 'HIDE_TEXT',
     })
     textIsVisible = false
+    currentText = ""
 end
 
 local function DrawText(text, position)
-    if not textIsVisible then textIsVisible = true else return end
+    if textIsVisible and text == currentText then return end
+    textIsVisible = true
+    currentText = text
 
     if (not type(position) == "string") then position = "left" end
 
