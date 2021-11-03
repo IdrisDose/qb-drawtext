@@ -38,10 +38,12 @@
 .top.show {
     transition: 0.5s;
     top: 10px;
+    opacity: 1;
 }
 .top.hide {
     transition: 0.5s;
     top: -100px;
+    opacity: 0;
 }
 
 .right {
@@ -51,10 +53,12 @@
 .right.show {
     transition: 0.5s;
     right: 10px;
+    opacity: 1;
 }
 .right.hide {
     transition: 0.5s;
     right: -100px;
+    opacity: 0;
 }
 
 .left {
@@ -65,8 +69,10 @@
 .left.show {
     transition: 0.5s;
     left: 10px;
+    opacity: 1;
 }
 .left.hide {
     transition: 0.5s;
     left: -100px;
+    opacity: 0;
 }
