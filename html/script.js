@@ -29,15 +29,21 @@ const drawText = (textData) => {
     }, 100);
 };
 
-const changeText = (textData) => {
+const changeText = async (textData) => {
     const text = document.getElementById("text");
     text.classList.remove("show");
+    text.classList.add('pressed');
+    text.classList.add("hide");
+
+    await sleep(500);
+
     text.classList.remove("left");
     text.classList.remove("right");
     text.classList.remove("top");
     text.classList.remove("bottom");
     text.classList.remove("hide");
     text.classList.remove("pressed");
+
 
     switch (textData.position) {
         case "left":
@@ -59,31 +65,31 @@ const changeText = (textData) => {
     }
     text.innerHTML = textData.text;
 
-    setTimeout(() => {
-        text.classList.add("show");
-    }, 100);
-}
+    await sleep(100);
+    text.classList.add("show");
+};
 
-const hideText = () => {
+const hideText = async () => {
     const text = document.getElementById("text");
     text.classList.remove("show");
     text.classList.add("hide");
 
-    setTimeout(() => {
-        text.classList.remove("left");
-        text.classList.remove("right");
-        text.classList.remove("top");
-        text.classList.remove("bottom");
-        text.classList.remove("hide");
-        text.classList.remove("pressed");
-        document.getElementById("container").style.display = "none";
-    }, 1000);
+    await sleep(1000);
+
+    text.classList.remove("left");
+    text.classList.remove("right");
+    text.classList.remove("top");
+    text.classList.remove("bottom");
+    text.classList.remove("hide");
+    text.classList.remove("pressed");
+    document.getElementById("container").style.display = "none";
+
 };
 
 const keyPressed = () => {
     const text = document.getElementById("text");
     text.classList.add("pressed");
-}
+};
 
 window.addEventListener("message", (event) => {
     const data = event.data;
@@ -102,3 +108,7 @@ window.addEventListener("message", (event) => {
             return;
     }
 });
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
