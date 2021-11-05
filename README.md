@@ -1,3 +1,5 @@
+# WIP - Current Issue text is not reappering on some edge cases.
+
 # qb-drawtext
 
 A NUI DrawText with a few different config options
