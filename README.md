@@ -1,8 +1,6 @@
-# WIP - Current Issue text is not reappering on some edge cases.
-
 # qb-drawtext
 
-A NUI DrawText with a few different config options
+A NUI DrawText with a few different config options. Please make sure you handle the showing and hiding as if done incorrectly it will just repeatadly send nui messages.
 
 ## How to use
 
