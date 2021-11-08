@@ -1,20 +1,12 @@
 local textIsVisible = false
-local currentText = ""
 
 local function HideText()
-    if not textIsVisible then return end
     SendNUIMessage({
         action = 'HIDE_TEXT',
     })
-    textIsVisible = false
-    currentText = ""
 end
 
 local function DrawText(text, position)
-    if textIsVisible and text == currentText then return end
-    textIsVisible = true
-    currentText = text
-
     if (not type(position) == "string") then position = "left" end
 
     SendNUIMessage({
@@ -40,8 +32,6 @@ local function ChangeText(text,position)
 end
 
 local function KeyPressed()
-    if not textIsVisible then return end
-
     Citizen.CreateThread(function() -- Not sure if a thread is needed but why not eh?
         SendNUIMessage({
             action = 'KEY_PRESSED',

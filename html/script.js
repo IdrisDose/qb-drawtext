@@ -1,65 +1,62 @@
 let direction = null;
 
-const drawText = (textData) => {
+const drawText = async (textData) => {
     const text = document.getElementById("text");
-    document.getElementById("container").style.display = "block";
 
     switch (textData.position) {
         case "left":
-            text.classList.add("left");
+            addClass(text, position);
             direction = "left";
             break;
         case "top":
-            text.classList.add("top");
+            addClass(text, position);
             direction = "top";
             break;
         case "right":
-            text.classList.add("right");
+            addClass(text, position);
             direction = "right";
             break;
         default:
-            text.classList.add("left");
+            addClass(text, "left");
             direction = "left";
             break;
     }
-    text.innerHTML = textData.text;
 
-    setTimeout(() => {
-        text.classList.add("show");
-    }, 100);
+    text.innerHTML = textData.text;
+    document.getElementById("container").style.display = "block";
+    await sleep(100);
+    addClass(text, "show");
 };
 
 const changeText = async (textData) => {
     const text = document.getElementById("text");
-    text.classList.remove("show");
-    text.classList.add('pressed');
-    text.classList.add("hide");
+    removeClass(text, "show");
+    addClass(text, "pressed");
+    addClass(text, "hide");
 
     await sleep(500);
-
-    text.classList.remove("left");
-    text.classList.remove("right");
-    text.classList.remove("top");
-    text.classList.remove("bottom");
-    text.classList.remove("hide");
-    text.classList.remove("pressed");
-
+    removeClass(text, "left");
+    removeClass(text, "right");
+    removeClass(text, "top");
+    removeClass(text, "bottom");
+    removeClass(text, "hide");
+    removeClass(text, "pressed");
 
     switch (textData.position) {
         case "left":
-            text.classList.add("left");
+            addClass(text, position);
             direction = "left";
             break;
         case "top":
-            text.classList.add("top");
+            addClass(text, position);
             direction = "top";
             break;
         case "right":
-            text.classList.add("right");
+            addClass(text, position);
             direction = "right";
             break;
         default:
-            text.classList.add("left");
+            addClass(text, "left");
             direction = "left";
             break;
     }
@@ -71,24 +68,23 @@ const changeText = async (textData) => {
 
 const hideText = async () => {
     const text = document.getElementById("text");
-    text.classList.remove("show");
-    text.classList.add("hide");
+    removeClass(text, "show");
+    addClass(text, "hide");
 
-    await sleep(1000);
-
-    text.classList.remove("left");
-    text.classList.remove("right");
-    text.classList.remove("top");
-    text.classList.remove("bottom");
-    text.classList.remove("hide");
-    text.classList.remove("pressed");
-    document.getElementById("container").style.display = "none";
-
+    setTimeout(() => {
+        removeClass(text, "left");
+        removeClass(text, "right");
+        removeClass(text, "top");
+        removeClass(text, "bottom");
+        removeClass(text, "hide");
+        removeClass(text, "pressed");
+        document.getElementById("container").style.display = "none";
+    }, 1000);
 };
 
 const keyPressed = () => {
     const text = document.getElementById("text");
-    text.classList.add("pressed");
+    addClass(text, "pressed");
 };
 
 window.addEventListener("message", (event) => {
@@ -109,6 +105,18 @@ window.addEventListener("message", (event) => {
     }
 });
 
-function sleep(ms) {
+const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
-}
+};
+
+const removeClass = (element, name) => {
+    if (element.classList.contains(name)) {
+        element.classList.remove(name);
+    }
+};
+
+const addClass = (element, name) => {
+    if (!element.classList.contains(name)) {
+        element.classList.add(name);
+    }
+};
