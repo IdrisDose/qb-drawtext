@@ -1,5 +1,3 @@
-local textIsVisible = false
-
 local function HideText()
     SendNUIMessage({
         action = 'HIDE_TEXT',
@@ -19,7 +17,7 @@ local function DrawText(text, position)
 end
 
 
-local function ChangeText(text,position)
+local function ChangeText(text, position)
     if (not type(position) == "string") then position = "left" end
 
     SendNUIMessage({
