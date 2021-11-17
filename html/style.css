@@ -12,10 +12,15 @@
     font-weight: 300;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 #container {
     display: none;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 .text {
     position: absolute;
