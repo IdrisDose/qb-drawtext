@@ -1,3 +1,5 @@
+# Feature should be baked into qb-core soon :) Same events and exports but qb-core instead of qb-drawtext
+
 # qb-drawtext
 
 A NUI DrawText with a few different config options. Please make sure you handle the showing and hiding as if done incorrectly it will just repeatadly send nui messages.
